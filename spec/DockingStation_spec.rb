@@ -2,10 +2,15 @@ require 'docking_station'
 require 'bike'
 
 describe DockingStation do
+  let(:bike) {Bike.new}
   # using the below hash to imply that it is an instance method
   describe '#release_bike' do
     it 'releases an error when there are no bikes' do
       expect{ subject.release_bike }.to raise_error "Error. No Bike."
+    end
+
+    it 'raises an erro when bike is broken' do
+      expect { subject.release_bike }.to raise_error "Bike broken"
     end
   end
 
@@ -23,6 +28,9 @@ describe DockingStation do
       expect{subject.dock(Bike.new)}.to raise_error "Error docking station full."
     end 
   end 
+
+  # describe "#working?" do 
+  #   it "returns false when "
 
 describe 'initialization' do 
   it 'accepts capacity of 50' do 
