@@ -9,7 +9,10 @@ describe DockingStation do
       expect{ subject.release_bike }.to raise_error "Error. No Bike."
     end
 
-    it 'raises an erro when bike is broken' do
+    it 'raises an error when bike is broken' do
+      bike = Bike.new
+      p bike.report_broken
+      subject.dock(bike.report_broken)
       expect { subject.release_bike }.to raise_error "Bike broken"
     end
   end

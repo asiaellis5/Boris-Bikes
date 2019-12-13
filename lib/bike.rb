@@ -1,10 +1,16 @@
 class Bike
+
+  # def initialize
+  #   @broken = true
+  # end
+
   def working?
-    return true 
+    @broken ? false : true
   end 
 
   def report_broken
     @broken = true
+    return self 
   end
 
   def broken?
